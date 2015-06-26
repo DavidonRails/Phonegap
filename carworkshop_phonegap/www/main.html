@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <!---   Jquery  --->
+        <script type="text/javascript" src="js/jquery-1.7.1.min.js" ></script>
+        
+        <!---   Jquery Moble ---->
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.0.min.css" />
+        <script type="text/javascript" src="js/jquery.mobile-1.3.0.min.js"></script>
+
+        <!---   Scroll Bar    -->
+        <link href="momentium-scroll/jquery.momentum.css" rel="stylesheet" type="text/css"/>
+        <script type="application/javascript" src="momentium-scroll/jquery.easing.1.3.js"></script>
+        <script type="application/javascript" src="momentium-scroll/jquery.momentum.0.8.min.js"></script>
+
+        <!---   Window Azuar Service -->
+        <script src="https://eutest.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js"></script>
+        
+        <!---   Main ---->
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <!--- Swipe Scroll --->
+        <script type="text/javascript" src="js/touchSwipe.js"></script>
+        
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+        <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+
+        
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <script type="text/javascript">
+            // Turn off jquery.mobile's default swipe-right behavior.
+            $(function(){ $('body').unbind("swiperight.jqm"); });
+            
+            // Increase the moveThreshold so that scrolling works better on slower mobile devices.
+            //$.MomentumScroller.config.moveThreshold = 100;
+        </script>
+        
+        <title>EU-Test</title>
+    </head>
+    <body  onload="initbody();">
+        
+        <!-- Login Page -->
+        <div data-role="page" id="loginPage">
+            <div data-role="content">
+                <div id="header_box">
+                    <div id="title_bar">Dahles Auto AS</div>
+                    <div id="sub_title_bar">Online booking of workshop hours</div>
+                </div>
+                <div id="content_box">
+                    <div id="content">
+                        <label style="margin-top: 30px;">Login</label>
+                        <input type="text" id="username" value="" /> <!-- 111222333 -->
+                        <label>Password</label>
+                        <input type="password" id="password" value="" /> <!-- 123456789 -->
+                        
+                        <div id="register_btn" class="button deactive">Register</div>
+                        <div id="login_btn" class="button deactive">Login</div>
+                        <br clear="both" />
+                        <a id="forgot_btn" href="#">Forgot Password?</a>
+                    </div>
+                </div>
+                <div id="footer_box">
+                    <div id="footer_forum">
+                        <font color="#000000">Powered by</font>
+                        <font color="#1170a2">Apps</font>
+                        <font color="#393939">Busines</font>
+                        <font color="#e4af1e">Store</font>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Forgot Page -->
+        <div data-role="page" id="forgotPage">
+            <div data-role="content">
+                <div id="header_box">
+                    <div id="title_bar">Dahles Auto AS</div>
+                    <div id="sub_title_bar">Online booking of workshop hours</div>
+                </div>
+                <div id="content_box">
+                    <div id="content">
+                        <label style="margin-top: 30px;">Phone Number</label>
+                        <input type="tel" id="phone" value="" /> <!--8613104152092-->
+                        <label>Car Number</label>
+                        <input type="text" id="carnumber" value="" /> <!-- ca29384 -->
+                        
+                        <div id="cancel_btn" class="button deactive">Cancel</div>
+                        <div id="getCode_btn" class="button deactive">Get My Account</div>
+                    </div>
+                </div>
+                <div id="footer_box">
+                    <div id="footer_forum">
+                        <font color="#000000">Powered by</font>
+                        <font color="#1170a2">Apps</font>
+                        <font color="#393939">Busines</font>
+                        <font color="#e4af1e">Store</font>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Register Page -->
+        <div data-role="page" id="registerPage">
+            <div data-role="content">
+                <div id="header_box">
+                    <div id="title_bar">Dahles Auto AS</div>
+                    <div id="sub_title_bar">Online booking of workshop hours</div>
+                </div>
+                <div id="content_box">
+                    <div id="content">
+                        <div class="book_wrap scroller ui-momentum-scroller">
+                            <div class="ui-momentum-scroller-view">
+
+                                <label style="margin-top: 30px;">Login ID *</label>
+                                <input type="text" id="loginid" value="" />
+                                
+                                <label>Password *</label>
+                                <input type="password" id="password" value="" /> <!-- 123456789 -->
+                                
+                                <label>Confirm Password *</label>
+                                <input type="password" id="repassword" value="" /> <!-- 123456789 -->
+
+                                <label>Full Name *</label>
+                                <input type="text" id="fullname" value="" /> <!-- zuizin -->
+
+                                <label>Email *</label>
+                                <input type="email" id="email" value="" /> <!-- zuizin123@gmail.com -->
+
+                                <label>Address</label>
+                                <input type="text" id="address" value="" /> <!-- China Liaoning Dandong -->
+
+                                <label>Zipcode</label>
+                                <input type="number" id="zipcode" value="" /> <!-- 8611001 -->
+                                
+                                <label>Tel *</label>
+                                <input type="tel" id="tel" value="" /> <!-- 45454545 -->
+
+                                <label>Car Number *</label>
+                                <input type="text" id="car_number" value="" /> <!-- ca24780 -->
+                                
+                                <label>Model *</label>
+                                <h3 id="notification">Please input Car Mobile Number greater than 1990</h3>
+                                <input type="number"  pattern="[0-9]*" id="model" value="2013" />
+
+                                <label>Car type</label>
+                                <input type="text" id="car_type" value="" /> <!-- Audi a4 Sline -->
+                                
+                            </div>
+                        </div>
+                        
+                        <div id="register_btn_box">
+                            <div id="back_btn" class="button deactive">Back</div>
+                            <div id="submit_btn" class="button deactive">Register</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Home Page -->
+        <div data-role="page" id="homePage">
+            <div data-role="content">
+                <div id="header_box">
+                    <div id="title_bar">Dahles Auto AS</div>
+                    <div id="sub_title_bar">Online booking of workshop hours</div>
+                </div>
+                <div id="content_box">
+                    <div id="content">
+                        <div id="gallery_box">
+                            <div id="gallery_div">
+                                <div class="gallery_item" ><img src="gallery/car1.png" width="100%" height="100%" /></div>
+                                <div class="gallery_item" ><img src="gallery/car2.png" width="100%" height="100%" /></div>
+                            </div>
+                        </div>
+                        
+                        <div class="accounts_wrap scroller ui-momentum-scroller">
+                            <div class="ui-momentum-scroller-view">
+                                <div id="adver_panel">
+                                    <div id="adver1">Service For You Car</div>
+                                    <div id="adver2">Unique application for your phone</div>
+                                    <div class="sub_adver">Online booking of workshop hours</div>
+                                    <div class="sub_adver">Maintenance and repair of motor vehicles</div>
+                                    <div class="sub_adver">Spare parts to order</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="footer_box">
+                    <div id="menu_bar">
+                        <a href="#homePage"><div class="footer_btn active" id="test_btn">Eu-Test</div></a>
+                        <a href="#bookingPage"><div class="footer_btn deactive" id="book_btn">Book Service</div></a>
+                        <a href="#sosPage"><div class="footer_btn deactive" id="sos_btn">SOS</div></a>
+                        <a href="#aboutPage"><div class="footer_btn deactive" id="about_btn">About Us</div></a>
+                    </div>
+                    <div id="footer_forum">
+                        <font color="#000000">Powered by</font>
+                        <font color="#1170a2">Apps</font>
+                        <font color="#393939">Busines</font>
+                        <font color="#e4af1e">Store</font>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Booking Page -->
+        <div data-role="page" id="bookingPage">
+            <div data-role="content">
+                <div id="header_box">
+                    <div id="title_bar">Dahles Auto AS</div>
+                    <div id="sub_title_bar">Online booking of workshop hours</div>
+                </div>
+                <div id="content_box">
+                    <div id="content">
+                        <div class="book_wrap scroller ui-momentum-scroller">
+                            <div class="ui-momentum-scroller-view">
+                                <div class="info_field" id="car_num_box">
+                                    <div class="info_title" id="extra_btn">Your Car Number</div>
+                                    <div class="info_value" id="car_num"></div>
+
+                                    <div class="extra_info" style="display:none;">
+                                        <div class="info_title" style="background:none;">Car Type</div>
+                                        <div class="info_value" id="car_type"></div>
+                                        
+                                        <div class="info_title" style="background:none;">Car Model</div>
+                                        <div class="info_value" id="car_model"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="info_field" id="last_date_box">
+                                    <div class="info_title">Last Eu-Test</div>
+                                    <div class="info_value" id="last_date"></div>
+                                </div>
+
+                                <div class="info_field" id="next_date_box">
+                                    <div class="info_title">Next Eu-Test</div>
+                                    <div class="info_value" id="next_date"></div>
+                                </div>
+                                
+                                <p>You can update the book date by 3 days before the current book date.</p>
+                                
+                                <div class="button deactive" id="cancel_btn">Cancel</div>
+                                <div class="button deactive" id="book_now_btn">Book Time Now</div>
+                                
+                                
+                                <div class="info_field" id="service_box" style="height: 150px; clear : both;">
+                                    <div class="info_title">Car Servicing</div>
+                                    <div class="info_value">
+                                        Dahles Auto AS is a reputable network of over 30
+                                        workshops countrywide. We specialisve in affordable
+                                        service and repairs of all makes of cars and bakkies and
+                                        are fast becoming one of leading car servicing groups.
+                                        We offer best quality service, at affordable prices in the 
+                                        most customer pleasing manner.
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div id="footer_box">
+                    <!--div id="menu_bar">
+                        <a href="#homePage"><div class="footer_btn deactive" id="test_btn">Eu-Test</div></a>
+                        <a href="#bookingPage"><div class="footer_btn active" id="book_btn">Book Service</div></a>
+                        <a href="#sosPage"><div class="footer_btn deactive" id="sos_btn">SOS</div></a>
+                        <a href="#aboutPage"><div class="footer_btn deactive" id="about_btn">About Us</div></a>
+                    </div-->
+                    <div id="footer_forum">
+                        <font color="#000000">Powered by</font>
+                        <font color="#1170a2">Apps</font>
+                        <font color="#393939">Busines</font>
+                        <font color="#e4af1e">Store</font>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Booking Detail Page -->
+        <div data-role="page" id="bookDetailPage">
+            <div data-role="content">
+                <div id="header_box">
+                    <div id="title_bar">Dahles Auto AS</div>
+                    <div id="sub_title_bar">Online booking of workshop hours</div>
+                </div>
+                <div id="content_box">
+                    <div id="content">
+                        <div class="book_wrap scroller ui-momentum-scroller">
+                            <div class="ui-momentum-scroller-view">
+                                <div id="welcome_box">Welcome <span id="username">mr.Andrew</span></div>
+                                <div class="info_field" id="car_num_box">
+                                    <div class="info_title">Your Car Number</div>
+                                    <div class="info_value" id="car_num"></div>
+                                </div>
+                                
+                                <div style="margin-top:10px; height: 40px; display: none;">
+                                    <div class="button deactive" id="change_btn">Change</div>
+                                    <span id="spanOR">Or</span>
+                                    <div class="button deactive" id="correct_btn">Correct</div>
+                                </div>
+                                
+                                <div id="datetime_box" style="margin-top: 10px;">Time and Date</div>
+                                
+                                <div id="book_date_info">
+                                    It is <span id="next_book">04/15/2013</span> for booked next EU-Test. You can update the book date by 3 days before the current book date.
+                                </div>
+                                
+                                <input name="book_date" id="book_date" class="book_date" />
+                                
+                                <div id="comment_box" style="margin-top:10px;">Comments</div>
+                                
+                                <textarea id="comment" rows="3" cols="80" ></textarea>
+                            </div>
+                        </div>
+
+                        <div id="controls">
+                            <div id="cancel_btn" class="button deactive">Cancel</div>
+                            <div id="booking_btn" class="button deactive">Book Now</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="footer_box">
+                    <!--div id="menu_bar">
+                        <a href="#homePage"><div class="footer_btn active" id="test_btn">Eu-Test</div></a>
+                        <a href="#bookingPage"><div class="footer_btn deactive" id="book_btn">Book Service</div></a>
+                        <a href="#"><div class="footer_btn deactive" id="sos_btn">SOS</div></a>
+                        <a href="#"><div class="footer_btn deactive" id="about_btn">About Us</div></a>
+                    </div-->
+                    <div id="footer_forum">
+                        <font color="#000000">Powered by</font>
+                        <font color="#1170a2">Apps</font>
+                        <font color="#393939">Busines</font>
+                        <font color="#e4af1e">Store</font>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- About Us Page -->
+        <div data-role="page" id="aboutPage">
+            <div data-role="content">
+                <div id="header_box">
+                    <div id="title_bar">Dahles Auto AS</div>
+                    <div id="sub_title_bar">Online booking of workshop hours</div>
+                </div>
+                <div id="content_box">
+                    <div id="content">
+                        
+                        <div class="book_wrap scroller ui-momentum-scroller">
+                            <div class="ui-momentum-scroller-view">
+                                <div id="mark">About Us</div>
+                                <div id="about_img">
+                                    <img src="img/about.png" width="100%" height="100%" />
+                                </div>
+                                
+                                <div class="info_field" id="about_text">
+                                    <div class="info_title">Sarpsborg</div>
+                                    <div class="info_value">
+                                        Dahles Auto AS ønsker deg som kunde velkommen
+                                        innom for en hyggelig bilprat og kyndig veiledning.
+                                    </div>
+                                    
+                                    <div class="info_value" style="margin-top:15px;">
+                                        Som representant for Norges mest populære bilmodeller
+                                        er vi sikre på at du vil finne den bilen som passer for deg.
+                                    </div>
+                                    
+                                    <div class="info_value" style="margin-top:15px;">
+                                        Dahles Auto AS er din forhandler av Volkswagen
+                                        personbiler/nyttekjøretøy og Audi i Sarpsborg og
+                                        Rakkestad.
+                                    </div>
+                                    
+                                    <div class="info_title" style="margin-top:15px;">Halden</div>
+                                    
+                                    <div class="info_value" style="margin-top:5px;">
+                                        Dahles Auto AS er din Volkswagen forhandler i Halden
+                                        og Aremark.
+                                    </div>
+
+                                    <div class="info_value" style="margin-top:15px;">
+                                        Vi er stolte av å ønske deg velkommen til vårt
+                                        forhandleranlegg hvor vi alltid har de siste modeller
+                                        utstillt i butikken, stor deleavdeling og verksted med de
+                                        beste kvalifikasjoner.
+                                    </div>
+
+                                    <div class="info_value" style="margin-top:15px;">
+                                        Dahles Auto AS ønsker deg velkommen til prøvekjøring
+                                        og en hyggelig bilprat!
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="info_field" id="contact_info">
+                                    <div class="info_title" style="margin-top:5px;">Contact Information</div>
+
+                                    <div class="info_value" style="margin-top:5px;">
+                                        Herbergveien 4
+                                    </div>
+
+                                    <div class="info_value" style="margin-top:2px; color:white;">
+                                        1701 Sarpsborg
+                                    </div>
+
+                                    <div class="info_value" style="margin-top:2px; color:white;">
+                                        Tlf: 69 13 78 00
+                                    </div>
+
+                                    <div class="info_value" style="margin-top:2px; color:white;">
+                                        Epost: dahles-auto@moller.no
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <div class="btn_box">
+                            <div class="button deactive" id="cancel_btn">Cancel</div>
+                            <div class="button deactive" id="book_now_btn">Book Time Now</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div id="footer_box">
+                    <!--div id="menu_bar">
+                     <a href="#homePage"><div class="footer_btn active" id="test_btn">Eu-Test</div></a>
+                     <a href="#bookingPage"><div class="footer_btn deactive" id="book_btn">Book Service</div></a>
+                     <a href="#sosPage"><div class="footer_btn deactive" id="sos_btn">SOS</div></a>
+                     <a href="#aboutPage"><div class="footer_btn deactive" id="about_btn">About Us</div></a>
+                    </div-->
+                    <div id="footer_forum">
+                        <font color="#000000">Powered by</font>
+                        <font color="#1170a2">Apps</font>
+                        <font color="#393939">Busines</font>
+                        <font color="#e4af1e">Store</font>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sos Page -->
+        <div data-role="page" id="sosPage">
+            <div data-role="content">
+                <div id="map_canvas"></div>
+                <div id="back_btn" class="button deactive" >Back</div>
+                <div id="request_btn" class="button deactive" >Send SOS</div>
+            </div>
+        </div>
+        
+        <!-- Sos Send Page -->
+        <div data-role="page" id="sosSendPage">
+            <div data-role="content">
+                <div id="header_box">
+                    <div id="title_bar">Dahles Auto AS</div>
+                    <div id="sub_title_bar">Online booking of workshop hours</div>
+                </div>
+                <div id="content_box">
+                    <div id="content">
+                        <div class="book_wrap scroller ui-momentum-scroller">
+                            <div class="ui-momentum-scroller-view">
+                                <div class="fld_lbl" style="">Coordinates</div>
+                                <input type="text" editable="false" name="coor" id="coor" class="" value="" />
+                                
+                                <div class="fld_lbl" style="">Telephone</div>
+                                <input type="tel" name="tel" id="tel" class="" value="" />
+
+                                <div class="fld_lbl" style="">Comments</div>
+                                <textarea id="comment" rows="3" cols="80" ></textarea>
+                            </div>
+                        </div>
+                        
+                        <div id="controls">
+                            <div id="cancel_btn" class="button deactive">Cancel</div>
+                            <div id="send_btn" class="button deactive">Send</div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="footer_box">
+                    <div id="footer_forum">
+                        <font color="#000000">Powered by</font>
+                        <font color="#1170a2">Apps</font>
+                        <font color="#393939">Busines</font>
+                        <font color="#e4af1e">Store</font>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            $(".scroller").momentumScroller({ direction: "vertical" });
+            $(".horizontal_wrap").momentumScroller({ direction: "horizontal" });
+            
+
+        </script>
+        
+        <script src="mobi/js/mobiscroll.core.js" type="text/javascript"></script>
+        
+        <script src="mobi/js/mobiscroll.datetime.js" type="text/javascript"></script>
+        <script src="mobi/js/mobiscroll.select.js" type="text/javascript"></script>
+        
+        <script src="mobi/js/mobiscroll.jqm.js" type="text/javascript"></script>
+        <script src="mobi/js/mobiscroll.ios.js" type="text/javascript"></script>
+        <script src="mobi/js/mobiscroll.android.js" type="text/javascript"></script>
+        <script src="mobi/js/mobiscroll.android-ics.js" type="text/javascript"></script>
+        <script src="mobi/js/mobiscroll.wp.js" type="text/javascript"></script>
+         
+
+        
+        <link href="mobi/css/mobiscroll.core.css" rel="stylesheet" type="text/css" />
+        <link href="mobi/css/mobiscroll.jqm.css" rel="stylesheet" type="text/css" />
+        <link href="mobi/css/mobiscroll.android.css" rel="stylesheet" type="text/css" />
+        <link href="mobi/css/mobiscroll.android-ics.css" rel="stylesheet" type="text/css" />
+        <link href="mobi/css/mobiscroll.ios.css" rel="stylesheet" type="text/css" />
+        <link href="mobi/css/mobiscroll.sense-ui.css" rel="stylesheet" type="text/css" />
+        <link href="mobi/css/mobiscroll.wp.css" rel="stylesheet" type="text/css" />
+        
+        <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript">
+            $(function () {
+              var curr = new Date().getFullYear();
+              var opt = {
+              'date': {
+              preset: 'date',
+              dateOrder: 'd Dmmyy',
+              invalid: { daysOfWeek: [0, 6], daysOfMonth: ['5/1', '12/24', '12/25'] }
+              },
+              'datetime': {
+              preset: 'datetime',
+              minDate: new Date(1910, 1, 1, 0, 0),
+              maxDate: new Date(2100, 12, 30, 24, 00),
+              stepMinute: 5
+              },
+              'time': {
+              preset: 'time'
+              },
+              'credit': {
+              preset: 'date',
+              dateOrder: 'mmyy',
+              dateFormat: 'yy-mm-dd',
+              timeFormat: 'HH:ii:ss',
+              startYear: curr,
+              endYear: curr + 10,
+              width: 100
+              },
+              'select': {
+              preset: 'select'
+              },
+              'select-opt': {
+              preset: 'select',
+              group: true,
+              width: 50
+              }
+              }
+              
+              $('#bookDetailPage #book_date').html("");
+              $('#bookDetailPage #book_date').scroller('destroy').scroller($.extend(opt["datetime"], {
+                theme: "default",
+                mode: "scroller",
+                lang: "",
+                display: "modal",
+                animate: ""
+                }));
+              
+            });
+        </script>
+    </body>
+</html>
