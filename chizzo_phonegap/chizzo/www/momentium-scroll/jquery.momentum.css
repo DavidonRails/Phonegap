@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+.ui-momentum-scroller {
+	overflow: hidden;
+	position: relative;
+}
+
+.ui-momentum-scroller-view {
+	position: relative;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+/**** SCROLLBAR ****/
+
+/* ui-scrollbar is the container for the up/down/left/right scroll buttons and the track. */
+
+.ui-scrollbar {
+	position: absolute;
+	overflow: hidden;
+
+	opacity: 0;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	transition: opacity 500ms;
+}
+
+.ui-scrollbar-visible {
+	opacity: 1;
+}
+
+.ui-scrollbar-vertical {
+	top: 2px;
+	right: 2px;
+	bottom: 8px;
+	width: 5px;
+}
+
+.ui-scrollbar-horizontal {
+	right: 8px;
+	bottom: 2px;
+	left: 2px;
+	height: 5px;
+}
+
+.ui-scrollbar-track {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.ui-scrollbar-thumb {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.ui-scrollbar-vertical .ui-scrollbar-thumb {
+	width: 5px;
+	height: 100%;
+}
+
+.ui-scrollbar-horizontal .ui-scrollbar-thumb {
+	width: 100%;
+	height: 5px;
+}
+
+/**** Category List ****/
+
+.ui-category-list {
+	margin: 10px;
+	padding: 0;
+	font-height: 14px;
+	font-family: Helvetica, Arial, sans-serif;
+	background-color: #999;
+}
+
+.ui-category-list-view {
+	background-color: white;
+}
+
+.ui-category-list ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: 24px;
+}
+
+.ui-category {
+}
+
+.ui-category-header {
+	position: relative;
+	top: 0;
+	left: 0;
+	background-color: rgba(100,100,100,0.7);
+	color: white;
+	border-top: solid 1px #333;
+	border-bottom: solid 1px #333;
+	z-index: 20;
+	font-weight: bold;
+}
+
